@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EU TE AMO</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 2px 2px 5px #000;
+        animation: bounce 1s infinite;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.4rem;
+        color: #fff;
+        text-shadow: 1px 1px 2px #000;
+        margin-bottom: 30px;
+        max-width: 90vw;
+        text-align: center;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border-radius: 50%;
+        animation: fall 3s infinite ease-in-out;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      #elizama-img {
+        display: none;
+        margin-top: 20px;
+        max-width: 300px;
+        max-height: 300px;
+        border-radius: 15px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        animation: fadein 1s;
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Áudio de fundo: troque o src abaixo pelo link correto do seu arquivo de áudio -->
+    <audio id="bg-music" loop>
+      <source src="melhor.mp3" type="audio/mpeg" />
+    </audio>
+
+    <h1 id="parabens-text">Parabéns, Elizama!!!</h1>
+    <p>
+      Eu te amo, estou com saudades de você, você é muito especial para mim e
+      tenho um carinho enormeeee por você
+    </p>
+    <!-- Troque o src abaixo pela URL da foto que você quiser mostrar -->
+    <img id="elizama-img" src="nos.png" alt="Foto especial da Elizama" />
+
+    <script>
+      // Confetti logic
+      function createConfetti() {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor = `hsl(${
+          Math.random() * 360
+        }, 100%, 50%)`;
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 3000);
+      }
+      setInterval(createConfetti, 200);
+
+      // Show image on h1 click
+      const parabens = document.getElementById("parabens-text");
+      const img = document.getElementById("elizama-img");
+      parabens.addEventListener("click", () => {
+        img.style.display = "block";
+      });
+
+      // Music autoplay fix for mobile (requires user interaction)
+      function playMusic() {
+        const bgMusic = document.getElementById("bg-music");
+        if (bgMusic && bgMusic.paused) {
+          bgMusic.play();
+        }
+        document.body.removeEventListener("touchstart", playMusic);
+        document.body.removeEventListener("click", playMusic);
+      }
+      document.body.addEventListener("touchstart", playMusic);
+      document.body.addEventListener("click", playMusic);
+
+      function playMusicFromTime() {
+        var audio = document.getElementById("bg-music");
+        // Defina o tempo inicial em segundos
+        audio.currentTime = 40; // 1 minuto e 30 segundos
+        audio.play();
+        document.body.removeEventListener("touchstart", playMusicFromTime);
+        document.body.removeEventListener("click", playMusicFromTime);
+      }
+      document.body.addEventListener("touchstart", playMusicFromTime);
+      document.body.addEventListener("click", playMusicFromTime);
+    </script>
+  </body>
+</html>
