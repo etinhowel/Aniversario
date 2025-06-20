@@ -164,23 +164,33 @@
       // Play music from 40s after user interaction and when possible
       function playMusicFrom40s() {
         const bgMusic = document.getElementById("bg-music");
-        function tryPlay() {
-          // Só define o currentTime se já pode (readyState >= 2)
-          if (bgMusic.readyState >= 2) {
-            bgMusic.currentTime = 40;
-            bgMusic.play();
-          } else {
-            // Espera o "canplay" e tenta de novo
-            bgMusic.addEventListener("canplay", function handler() {
-              bgMusic.currentTime = 40;
-              bgMusic.play();
-              bgMusic.removeEventListener("canplay", handler);
-            });
-          }
-        }
-        tryPlay();
+        // Remove event listeners to avoid multiple triggers
         document.body.removeEventListener("touchstart", playMusicFrom40s);
         document.body.removeEventListener("click", playMusicFrom40s);
+
+        // Try to play and set currentTime in a robust mobile-friendly way
+        const setAndPlay = () => {
+          try {
+            if (bgMusic.readyState >= 2) {
+              bgMusic.currentTime = 40;
+              bgMusic.play().catch(() => {});
+            } else {
+              // Listen for canplay only once
+              bgMusic.addEventListener("canplay", function handler() {
+                bgMusic.currentTime = 40;
+                bgMusic.play().catch(() => {});
+                bgMusic.removeEventListener("canplay", handler);
+              });
+              // In some Androids/iOS, an initial play helps to unlock the audio
+              bgMusic.play().catch(() => {});
+            }
+          } catch (e) {
+            // fallback: just play
+            bgMusic.play().catch(() => {});
+          }
+        };
+
+        setAndPlay();
       }
       document.body.addEventListener("touchstart", playMusicFrom40s);
       document.body.addEventListener("click", playMusicFrom40s);
