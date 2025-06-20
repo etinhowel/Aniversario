@@ -1,181 +1,178 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EU TE AMO</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap");
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        min-height: 100vh;
-        width: 100vw;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
-        font-family: "Comic Neue", "Comic Sans MS", cursive, sans-serif;
-        overflow: hidden;
-      }
-      .center-container {
-        min-height: 100vh;
-        min-width: 100vw;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        z-index: 2;
-        box-sizing: border-box;
-      }
-      h1 {
-        font-size: 2.5rem;
-        color: #fff;
-        text-shadow: 2px 2px 5px #000;
-        animation: bounce 1s infinite;
-        cursor: pointer;
-        margin-bottom: 10px;
-        line-height: 1.1;
-        word-break: break-word;
-        font-family: "Comic Neue", "Comic Sans MS", cursive, sans-serif;
-      }
-      p {
-        font-size: 1.3rem;
-        color: #fff;
-        text-shadow: 1px 1px 2px #000;
-        margin-bottom: 30px;
-        max-width: 90vw;
-        word-break: break-word;
-        font-family: "Comic Neue", "Comic Sans MS", cursive, sans-serif;
-      }
-      #elizama-img {
-        display: none;
-        margin-top: 20px;
-        max-width: 300px;
-        max-height: 300px;
-        border-radius: 15px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-        animation: fadein 1s;
-      }
-      @keyframes fadein {
-        from {
-          opacity: 0;
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
-        to {
-          opacity: 1;
+        body {
+            min-height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
         }
-      }
-      .confetti {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background: #fff;
-        border-radius: 50%;
-        animation: fall 3s infinite ease-in-out;
-        z-index: 10;
-      }
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0);
+        .center-container {
+            min-height: 100vh;
+            min-width: 100vw;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
         }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-      @keyframes fall {
-        0% {
-          transform: translateY(-100vh) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-      /* RESPONSIVO */
-      @media (max-width: 600px) {
         h1 {
-          font-size: 1.7rem;
-          padding: 0 7vw;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 5px #000;
+            animation: bounce 1s infinite;
+            cursor: pointer;
+            margin-bottom: 10px;
+            line-height: 1.1;
+            word-break: break-word;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
         }
         p {
-          font-size: 1.05rem;
-          padding: 0 6vw;
+            font-size: 1.3rem;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+            margin-bottom: 30px;
+            max-width: 90vw;
+            word-break: break-word;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
         }
         #elizama-img {
-          max-width: 88vw;
-          max-height: 45vw;
+            display: none;
+            margin-top: 20px;
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            animation: fadein 1s;
         }
-      }
-      @media (max-width: 400px) {
-        h1 {
-          font-size: 1.1rem;
+        @keyframes fadein {
+            from { opacity: 0;}
+            to { opacity: 1;}
         }
-        p {
-          font-size: 0.95rem;
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: fall 3s infinite ease-in-out;
+            z-index: 10;
         }
-      }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.7rem;
+                padding: 0 7vw;
+            }
+            p {
+                font-size: 1.05rem;
+                padding: 0 6vw;
+            }
+            #elizama-img {
+                max-width: 88vw;
+                max-height: 45vw;
+            }
+        }
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.1rem;
+            }
+            p {
+                font-size: 0.95rem;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <audio id="bg-music" loop>
-      <source src="melhor.mp3" type="audio/mpeg" />
-      Seu navegador não suporta áudio HTML5.
+        <source src="audio/someone-like-you.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
     </audio>
     <div class="center-container">
-      <h1 id="parabens-text">Parabéns, Elizama!!!</h1>
-      <p>
-        Eu te amo, estou com saudades de você, você é muito especial para mim e
-        tenho um carinho enormeeee por você CLICA NO PARABENS
-      </p>
-      <!-- Troque o src abaixo pela URL da foto que você quiser mostrar -->
-      <img id="elizama-img" src="nos.png" alt="Foto especial da Elizama" />
+        <h1 id="parabens-text">Parabéns, Elizama!!!</h1>
+        <p>Eu te amo, estou com saudades de você, você é muito especial para mim e tenho um carinho enormeeee por você</p>
+        <img id="elizama-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=600&h=600&q=80" alt="Foto especial da Elizama">
     </div>
     <script>
-      // Confetti logic
-      function createConfetti() {
-        const confetti = document.createElement("div");
-        confetti.classList.add("confetti");
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.backgroundColor = `hsl(${
-          Math.random() * 360
-        }, 100%, 50%)`;
-        document.body.appendChild(confetti);
+        // Confetti logic
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(confetti);
 
-        setTimeout(() => {
-          confetti.remove();
-        }, 3000);
-      }
-      setInterval(createConfetti, 200);
-
-      // Show image on h1 click
-      const parabens = document.getElementById("parabens-text");
-      const img = document.getElementById("elizama-img");
-      parabens.addEventListener("click", () => {
-        img.style.display = "block";
-      });
-
-      // Music autoplay fix for mobile (requires user interaction)
-      function playMusic() {
-        const bgMusic = document.getElementById("bg-music");
-        if (bgMusic && bgMusic.paused) {
-          // Exemplo: começa em 90 segundos
-          // bgMusic.currentTime = 90;
-          bgMusic.play();
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
         }
-        document.body.removeEventListener("touchstart", playMusic);
-        document.body.removeEventListener("click", playMusic);
-      }
-      document.body.addEventListener("touchstart", playMusic);
-      document.body.addEventListener("click", playMusic);
+        setInterval(createConfetti, 200);
+
+        // Show image on h1 click
+        const parabens = document.getElementById('parabens-text');
+        const img = document.getElementById('elizama-img');
+        parabens.addEventListener('click', () => {
+            img.style.display = 'block';
+        });
+
+        // Play music from 40s after user interaction and when possible
+        function playMusicFrom40s() {
+            const bgMusic = document.getElementById('bg-music');
+            function tryPlay() {
+                // Só define o currentTime se já pode (readyState >= 2)
+                if (bgMusic.readyState >= 2) {
+                    bgMusic.currentTime = 40;
+                    bgMusic.play();
+                } else {
+                    // Espera o "canplay" e tenta de novo
+                    bgMusic.addEventListener('canplay', function handler() {
+                        bgMusic.currentTime = 40;
+                        bgMusic.play();
+                        bgMusic.removeEventListener('canplay', handler);
+                    });
+                }
+            }
+            tryPlay();
+            document.body.removeEventListener('touchstart', playMusicFrom40s);
+            document.body.removeEventListener('click', playMusicFrom40s);
+        }
+        document.body.addEventListener('touchstart', playMusicFrom40s);
+        document.body.addEventListener('click', playMusicFrom40s);
     </script>
-  </body>
+</body>
 </html>
